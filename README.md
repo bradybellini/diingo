@@ -6,6 +6,7 @@ First initialize
 ```typescript
 const tiingo = new Tiingo(apiKey);
 ```
+
 ### End of Day Endpoint Examples
 
 [Tiingo documentation for End-of-Day](https://api.tiingo.com/documentation/end-of-day)
@@ -71,7 +72,7 @@ console.log(await nvda.json());
 
 // {
 //   name: "NVIDIA Corp",
-//   description: "NVIDIA ’s invention of the GPU in 1999 sparked the growth of the PC gaming market and has redefined ...",
+//   description: "NVIDIA ’s invention of the GPU in 1999 sparked the growth of the PC ...",
 //   exchangeCode: "NASDAQ",
 //   endDate: "2021-08-13",
 //   ticker: "NVDA",

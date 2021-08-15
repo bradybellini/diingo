@@ -19,7 +19,7 @@ export class Tiingo {
       method: "GET",
       headers: this.headers,
     });
-    
+
     return response;
   }
 
@@ -35,23 +35,23 @@ export class Tiingo {
       columns?: string[];
     },
   ): Promise<Response> {
-    const metaDataUrl: string = `/daily/${ticker}`;
-
     let latestPriceUrl: string =
       `/daily/${ticker}/prices?resampleFreq=${freq}&`;
 
     if (startDate) {
       latestPriceUrl += `startDate=${startDate}&`;
-    }
-
-    if (endDate) {
+    } else if (endDate) {
       latestPriceUrl += `endDate=${endDate}&`;
-    }
-
-    if (columns) {
+    } else if (columns) {
       latestPriceUrl += `columns=${columns}`;
     }
 
     return this._getRequest(this._base_url + latestPriceUrl);
+  }
+
+  async ticker_meta(ticker: string): Promise<Response> {
+    const metaUrl: string = `/daily/${ticker}`;
+
+    return this._getRequest(this._base_url + metaUrl);
   }
 }

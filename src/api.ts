@@ -15,7 +15,7 @@ export class Tiingo {
   }
 
   async _getRequest(url: string): Promise<Response> {
-    const response = await fetch(url, {
+    const response = await fetch(this._base_url + url, {
       method: "GET",
       headers: this.headers,
     });
@@ -46,12 +46,22 @@ export class Tiingo {
       latestPriceUrl += `columns=${columns}`;
     }
 
-    return this._getRequest(this._base_url + latestPriceUrl);
+    return this._getRequest(latestPriceUrl);
   }
 
   async ticker_meta(ticker: string): Promise<Response> {
     const metaUrl: string = `/daily/${ticker}`;
 
-    return this._getRequest(this._base_url + metaUrl);
+    return this._getRequest(metaUrl);
   }
+  
+
+  
+  async latestNews(): Promise<Response> {
+    return this._getRequest('/news');
+  }
+  
+  // async tickertNews(): Promise<Response> {
+  //   return this._getRequest('/news');
+  // }
 }

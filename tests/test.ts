@@ -8,8 +8,12 @@ const tiingo = new Tiingo("123");
 
 // tiingo.eod("HOOD").then(data => console.log(data[0]['high']))
 
-const nvda = await tiingo.eod({
-  ticker: "NVDA",
-});
+// const nvda = await tiingo.eod({
+//   ticker: "NVDA",
+// });
 
-console.log(await nvda.json());
+// console.log(await nvda.json());
+
+const nvda = await tiingo.ticker_meta('NVDA');
+
+console.log(await nvda.json().then(data => (data['description'])))

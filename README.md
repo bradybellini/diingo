@@ -1,6 +1,15 @@
 # Tiingo API client for Deno
-### End-of-Day Endpoint
+## Usage
+
+First initialize
 ```typescript
+const tiingo = new Tiingo(apiKey);
+```
+#### End-of-Day Endpoint Examples
+[Tiingo documentation for End-of-Day](https://api.tiingo.com/documentation/end-of-day)
+```typescript
+// get the ticker HOOD, with weekly prices from August 1st thru the 14th only returning high and low columns (date is alwaays returned)
+// see the Tiingo documentation for more detail about frequency
 let hood = await tiingo.eod({
   ticker: "HOOD",
   freq: "weekly",

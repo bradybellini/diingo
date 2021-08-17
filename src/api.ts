@@ -54,14 +54,27 @@ export class Tiingo {
 
     return this._getRequest(metaUrl);
   }
-  
 
-  
-  async latestNews(): Promise<Response> {
-    return this._getRequest('/news');
+  async news(
+    { tickers, tags, source, startDate }: {
+      tickers?: string[];
+      tags?: string[];
+      source?: string[];
+      startDate?: string;
+      endDate?: string;
+      limit?: number;
+      offset?: number;
+    },
+  ): Promise<Response> {
+    return this._getRequest("/news");
   }
-  
+
   // async tickertNews(): Promise<Response> {
   //   return this._getRequest('/news');
   // }
+
+  async fundamentals(): Promise<Response> {
+    
+    return this._getRequest('/fundementals')
+  }
 }
